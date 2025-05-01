@@ -25,8 +25,8 @@ app.post('/upload', upload.single('cv'), async (req, res) => {
     res.json({ preguntas: questions });
 
   } catch (error) {
-    console.error(' Error general:', error.message);
-    res.status(500).json({ error: 'Hubo un problema generando las preguntas.' });
+    console.error('huggingface falló:', error?.response?.status, error?.response?.data);
+    throw new Error('Todos los proveedores fallaron.');
   }
 });
 

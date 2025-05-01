@@ -16,7 +16,7 @@ async function getInterviewQuestions(cvText) {
   for (const provider of providers) {
     try {
       console.log(`Probando con proveedor: ${provider.name}`);
-      const result = await timeoutPromise(provider.getQuestions(cvText), 20000); 
+      const result = await timeoutPromise(provider.getQuestions(cvText), 30000); 
       if (result && result.length > 0) return result;
     } catch (error) {
       console.warn(`${provider.name} falló: ${error.message}`);
